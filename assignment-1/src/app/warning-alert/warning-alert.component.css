@@ -1,0 +1,10 @@
+.container {
+  border: 2px solid red;
+}
+
+p {
+  color: red;
+  padding: 2rem 0;
+  font-weight: bold;
+  font-size: 2rem;
+}
