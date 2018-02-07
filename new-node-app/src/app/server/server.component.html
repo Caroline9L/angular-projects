@@ -1,0 +1,7 @@
+<div class="col-sm-3">&nbsp;</div>
+<div class="col-sm-6">
+  <p [ngStyle]="{backgroundColor: getColor()}"
+  [ngClass]="{'online': serverStatus === 'online'}">
+    Server with ID {{ serverId }} is {{ getServerStatus() }}  (or {{ serverStatus }})
+  </p><!-- ng style is the directive.  [] binds it to a given property of the directive--><!-- ngClass only works w property binding.   -->
+</div>

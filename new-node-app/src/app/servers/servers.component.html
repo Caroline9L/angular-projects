@@ -1,0 +1,30 @@
+<label>Server Name</label>
+<!--<input
+  type="text"
+  class="form-control"
+  (input)="onUpdateServerName($event)">--> <!-- $event grabs that event and passes to the method, like (e) or this -->
+  <input
+    type="text"
+    class="form-control"
+    [(ngModel)]="serverName"> <!-- 2-way binding - triggers on input and updates component/preset value    -->
+
+  <!--<p>{{ serverName }}</p>--><!-- is bound to the input -- outputs a string-->
+<button class="btn btn-primary"
+[disabled]="!allowNewServer"
+(click)="onCreateServer()"><!--the [] binds this to the server function in ts, ! = 'if allowNewServer is not true', (click) is the event listener-->
+  Add Server
+</button>
+
+<!--provides output of function -- T or F in this case-->
+<!--<p>  {{ allowNewServer }} </p> String Interpolation-->
+<!--<p [innerText]="allowNewServer"></p> Property Binding-->
+<!--<p>{{ serverCreationStatus }}</p>--> <!-- this will be changed by the function being called on button click-->
+<p *ngIf="serverCreated">Server was created, server name is {{ serverName }}.</p><!-- * changes dom structure. ngIf returns T/F only. This is bound to the t/f in component.  -->
+<!-- <p *ngIf="serverCreated; else noServer">Server was created, server name is {{ serverName }}.</p> --><!--  Else shows ng-template -->
+
+<!-- <ng-template #noServer>
+  <p>No server was created!</p>
+</ng-template> --><!-- # is local reference. ng-template is a placeholder -->
+<br />
+
+<app-server *ngFor="let server of servers"></app-server><!-- let makes a temp variable (bamed server), servers is the array in the exp class-->
