@@ -1,0 +1,70 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <button
+        class="btn btn-primary"
+        (click)="onlyOdd = !onlyOdd">Only show odd numbers</button>
+      <br><br>
+      <ul class="list-group">
+        <!-- <div *ngIf="!onlyOdd">
+          <li
+            class="list-group-item"
+            [ngClass]="{odd: odd % 2 !== 0}"
+            [ngStyle]="{backgroundColor: odd % 2 !== 0 ? 'black' : 'blue'}"
+            *ngFor="let odd of oddNumbers">
+            {{ odd }}
+          </li>
+            <ng-template>
+              <div [ngIf]="!onlyOdd">
+                <li
+                  class="list-group-item" 
+                  [ngClass]="{odd: odd % 2 !== 0}" 
+                  [ngStyle]="{backgroundColor: odd % 2 !== 0 ? 'black' : 'blue'}"
+                  *ngFor="let odd of oddNumbers"> {{ odd }}
+                    This is ng-template. ngIf is different in the div because this doesn't exist until the condition is true.
+                </li>
+              </div>
+            </ng-template>
+        </div>-->
+        <div *ngIf="onlyOdd"> 
+          <li 
+          class="list-group-item" 
+          [ngClass]="{even: even % 2 === 0}"
+          [ngStyle]="{backgroundColor: even % 2 == 0 ? 'yellow' : 'red'}"
+          *ngFor="let even of evenNumbers">
+            {{ even }}
+          </li>
+        </div>
+        <div *appUnless="onlyOdd">
+          <li
+            class="list-group-item"
+            [ngClass]="{odd: odd % 2 !== 0}"
+            [ngStyle]="{backgroundColor: odd % 2 !== 0 ? 'black' : 'blue'}"
+            *ngFor="let odd of oddNumbers">
+            {{ odd }} this is linked using a custom structural directive (unless)
+          </li>
+        </div>
+      </ul>
+      <p appBasicHighlight>Styled with basic directive</p>
+      <p appBetterHighlight>Styled with better directive</p>
+      <p appBetterHighlight 
+        [defaultColor]="'yellow'"
+        [highlightColor]="'purple'">
+         Styled with better directive & databinding</p>
+      <!-- <p 
+        [appBetterHighlight]="'purple'" 
+        [defaultColor]="'yellow'">
+        if the selector name goes into Input('') and becomes an alias, it will look like this </p> -->
+      <div [ngSwitch]="value"> <!--ngswitch is property bound to the value in .ts. Alternative to lengthy ngIf statements -->
+          <p *ngSwitchCase="5">Value is 5</p>
+          <p *ngSwitchCase="10">Value is 10</p>
+          <p *ngSwitchCase="100">Value is 100</p>
+          <p *ngSwitchDefault>Value is default</p>
+      </div>
+
+      <ng-template [ngIf]="onlyOdd">
+        <p>Only odd</p>
+      </ng-template>
+    </div>
+  </div>
+</div>

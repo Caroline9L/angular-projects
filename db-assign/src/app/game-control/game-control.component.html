@@ -1,0 +1,64 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+
+      <h1>Some Game Or Other</h1>
+
+      <div class="row">
+        <div class="col-sm-6">
+
+          <button 
+            class="btn btn-primary" 
+            (click)="onStartGame()">
+            Start
+          </button>
+
+          <button 
+            class="btn btn-danger" 
+            (click)="onPauseGame()">
+            Pause
+          </button>
+
+        </div>
+      </div>
+
+
+          <!-- <app-even
+          *ngFor="let clickNum of clickNumbers"
+          [clickNo]="clickNum">
+          <app-even *ngFor="let serverElement of serverElements" [srvElement]="serverElement" [name]="serverElement.name"> 
+          </app-even>
+        </div>
+        <div class="col-sm-6">
+          <app-odd></app-odd>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-12 d-flex justify-items-center">
+
+          <button 
+            class="btn btn-primary"
+            (click)="onStartGame()"
+             >
+            Start Game</button>
+            <p 
+              *ngFor="let stroke of keyStrokes; let i = index" 
+              [ngClass]="{'even': (i % 2) != 1}"> <!--, 'odd': (i % 2) = 1 -->
+              <!-- This is hit {{ stroke + (i + 1) }}
+            </p>
+            <p 
+              *ngIf="startGame"
+              [ngStyle]="{backgroundColor: 'red'}">
+                This is hit {{ stroke + (i + 1) }}
+            </p>
+
+          <button 
+            class="btn btn-danger"
+             (click)="onPauseGame()"
+            >
+            Pause</button> 
+
+    </div>
+  </div>
+</div>-->
