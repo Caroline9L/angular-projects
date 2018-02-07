@@ -1,0 +1,32 @@
+<div class="container">
+<app-cockpit
+  (serverCreated)="onServerAdded($event)"
+  (bpCreated)="onBlueprintAdded($event)"
+  ></app-cockpit>
+  <hr>
+  <div class="row">
+    <div class="col-xs-12">
+      <button 
+      class="btn btn-primary"
+      (click)="onChangeFirst()">Change first Element</button>
+      <button 
+      class="btn btn-danger" 
+      (click)="onDestroyFirst()">Destroy first component</button>
+      <!-- <app-server-element
+      *ngFor="let serverElement of serverElements"
+      [element]="serverElement"
+      ></app-server-element>--><!-- ngFor in selector will replicate the element --><!-- bind the exported element defined in s-e.comp.ts to exported element defined in app.comp.ts. Element needs @Input for this to work since they are in 2 different folders-->
+      <app-server-element
+      *ngFor="let serverElement of serverElements"
+      [srvElement]="serverElement"
+      [name]="serverElement.name"> <!-- 'name' in @Input in s-e.ts -->
+        <p #contentParagraph>
+          <strong *ngIf="serverElement.type === 'server'" style="color: red">{{ serverElement.content }}</strong>
+          <!-- <em *ngIf="element.type === 'blueprint'">{{ element.content }}</em> -->
+          <em *ngIf="serverElement.type === 'blueprint'">{{ serverElement.content }}</em>
+
+        </p><!-- another acceptable way to apply styling.  Add in element tags and replace element.type & .content with the property above -->
+      </app-server-element>
+    </div>
+  </div>
+</div>
