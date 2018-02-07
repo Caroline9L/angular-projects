@@ -1,0 +1,50 @@
+<h4>Add Ingredient to Shopping List</h4>
+<div class="row">
+  <div class="col-xs-12">
+    <form (ngSubmit)="onAddIngredient(f)" #f="ngForm">
+      <div class="row">
+        <div class="col-sm-5 form-group">
+          <label for="name">Name</label>
+          <input
+            type="text"
+            id="name"
+            class="form-control"
+            name="name"
+            ngModel
+            required><!--#nameInput-->
+        </div>
+        <div class="col-sm-2 form-group">
+          <label for="amount">Amount</label>
+          <input
+            type="number"
+            class="form-control"
+            id="amount"
+            name="amount"
+            ngModel
+            required
+            pattern="^[1-9]+[0-9]*$"><!--#amountInput-->
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <button
+            class="btn btn-success"
+            type="submit"
+            [disabled]="!f.valid"><!--(click)="onAddIngredient()"-->
+            {{ editMode ? 'Update' : 'Add Ingredient'}}</button> <!--if we are in edit mode button says update, otherwise it says add -->
+          <button
+            class="btn btn-danger"
+            type="button"
+             (click)="onDelete()"
+             *ngIf="editMode"><!--only show this button in edit mode-->
+            Delete Ingredient</button>
+          <button
+            class="btn btn-primary"
+            type="button"
+            (click)="onClear()">
+            Clear</button>
+          </div>
+      </div>
+    </form>
+  </div>
+</div>
